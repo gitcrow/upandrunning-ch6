@@ -30,6 +30,7 @@ public class UpandrunningCh6Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UpandrunningCh6Application.class, args);
+		System.out.println("hello");
 	}
 
 }
