@@ -14,6 +14,8 @@ import com.springbootexam.upandrunning_ch6.model.Aircraft;
 @SpringBootApplication
 public class UpandrunningCh6Application {
 
+	//템플릿에서 repository로 변경하면서 제거되는 부분
+	/* 
 	@Bean//컴포넌트를 스프링 빈으로 인스턴스화할때 사용하는 방법 중 @Configuration 어노테이션을 포함하는 메타 어노테이션을 통해서 @Bean 어노테이션이 달린 메서드를 생성하는 방법으로 적용함
 	public RedisOperations<String, Aircraft> //레디스와 상호작용하는데 필요한 기능을 지정해줌
 	redisOperations(RedisConnectionFactory factory){
@@ -27,7 +29,8 @@ public class UpandrunningCh6Application {
 
 		return template; //애플리케이션 내에서 RedisOperations 빈의 구현체가 요청될 때 사용할 빈으로 template을 반환한다.
 	}
-
+	*/
+	
 	public static void main(String[] args) {
 		SpringApplication.run(UpandrunningCh6Application.class, args);
 		System.out.println("hello");

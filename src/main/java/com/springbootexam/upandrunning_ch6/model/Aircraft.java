@@ -3,6 +3,7 @@ package com.springbootexam.upandrunning_ch6.model;
 import java.time.Instant;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.redis.core.RedisHash;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@RedisHash // 템플릿에서 repository로 변경하면서 추가되는 부분
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Aircraft {
     @Id
@@ -48,6 +50,10 @@ public class Aircraft {
     @JsonProperty("bds40_seen_time")
     private Instant bds40SeenTime;
 
+    //템플릿에서 repository로 변경하면서 제거되는 부분
+    //repository 지원에 있는 변환기가 복잡한 타입 변환을 쉽게 처리하기때문에 명시적 getter, setter는 필요없어짐
+    //다만, 스프링데이터 템플릿의 하위수준 기능에 직접 액세스할 필요가 있다면, 템플릿 기반 데이터베이스 지원은 필수
+    /* 
     public String getLastSeenTime(){
         return lastSeenTime.toString();
     }
@@ -83,4 +89,5 @@ public class Aircraft {
             this.bds40SeenTime = Instant.ofEpochSecond(0);
         }
     }
+    */
 }
